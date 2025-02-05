@@ -1,5 +1,5 @@
 {% set name = "dejaq" %}
-{% set version = "0.0.8" %}
+{% set version = "0.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/dejaq-{{ version }}.tar.gz
-  sha256: 9c55943c89bc30274eb42f3f866524f3e7660274ad81160ba892a989702b0273
+  sha256: 2bcfef756d1f9fa8850f3fdaa49a929ee2698377c9d84ea104f03ceedcdddc68
 
 build:
   noarch: python
@@ -30,7 +30,7 @@ test:
     - dejaq
   commands:
     - pip check
-  requires: 
+  requires:
     - python {{ python_min }}
     - numpy
     - tqdm
