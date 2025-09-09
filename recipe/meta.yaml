@@ -24,6 +24,9 @@ requirements:
     - python >={{ python_min }}
     - numpy
     - tqdm
+    - posix_ipc  # [unix]
+    - pywin32    # [win]
+    - cloudpickle
 
 test:
   imports:
@@ -32,9 +35,12 @@ test:
     - pip check
   requires:
     - python {{ python_min }}
+    - pip
     - numpy
     - tqdm
-    - pip
+    - posix_ipc  # [unix]
+    - pywin32    # [win]
+    - cloudpickle
 
 about:
   home: https://github.com/danionella/dejaq
