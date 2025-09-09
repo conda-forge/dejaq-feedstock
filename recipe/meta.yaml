@@ -1,5 +1,5 @@
 {% set name = "dejaq" %}
-{% set version = "0.2.1" %}
+{% set version = "0.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,23 +7,25 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/dejaq-{{ version }}.tar.gz
-  sha256: 1e1b6148bb420ce54528be233cfc1892ce0309edc2f8a0e48d863aed8783458c
+  sha256: 132c29d037675e0c13e9e6f87daf0666b49705c739d11b665a5800ea0db40f03
 
 build:
-  noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
 requirements:
   host:
-    - python {{ python_min }}
+    - python
     - setuptools >=42
     - wheel
     - pip
   run:
-    - python >={{ python_min }}
+    - python
     - numpy
     - tqdm
+    - posix_ipc  # [unix]
+    - pywin32    # [win]
+    - cloudpickle
 
 test:
   imports:
@@ -31,9 +33,7 @@ test:
   commands:
     - pip check
   requires:
-    - python {{ python_min }}
-    - numpy
-    - tqdm
+    - python
     - pip
 
 about:
