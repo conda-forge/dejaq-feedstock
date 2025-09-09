@@ -24,8 +24,6 @@ requirements:
     - python >={{ python_min }}
     - numpy
     - tqdm
-    - posix_ipc  # [unix]
-    - pywin32    # [win]
 
 test:
   imports:
@@ -37,8 +35,6 @@ test:
     - numpy
     - tqdm
     - pip
-    - posix_ipc  # [unix]
-    - pywin32    # [win]
 
 about:
   home: https://github.com/danionella/dejaq
